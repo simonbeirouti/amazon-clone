@@ -14,7 +14,13 @@ export default function Product({
       <p className="absolute top-2 right-2 text-xs italic text-gray-400">
         {category}
       </p>
-      <Image src={image} width={200} height={200} objectFit="contain" />
+      <Image
+        alt={`Image of ${title}`}
+        src={image}
+        width={200}
+        height={200}
+        objectFit="contain"
+      />
       <h4 className="my-3">{title}</h4>
       <p className="text-xs mb-2 line-clamp-2">{description}</p>
       <div className="mb-5">
