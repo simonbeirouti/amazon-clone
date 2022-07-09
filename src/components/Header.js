@@ -57,7 +57,7 @@ export default function Header() {
         <p className="link hidden sm:inline-flex">Prime</p>
         <p className="link hidden sm:inline-flex">Electronics</p>
         <p className="link hidden md:inline-flex">Health &amp; Peronsal Care</p>
-        <p className="link hidden md:inline-flex">Food &amp; Groceries</p>
+        <p className="link hidden lg:inline-flex">Food &amp; Groceries</p>
         <p className="link hidden lg:inline-flex">Buy Again</p>
         <p className="link hidden lg:inline-flex">Shopper Toolkit</p>
       </div>
