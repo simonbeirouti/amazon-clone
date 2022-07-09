@@ -13,25 +13,31 @@ export default function Banner() {
         showThumbs={false}
       >
         <div>
-          <img
-            loading="lazy"
-            src="https://links.papareact.com/gi1"
-            alt="An image about the Listen, read, discuss. The Graham Norton reading club. "
-          />
+          <picture>
+            <img
+              loading="lazy"
+              src="https://links.papareact.com/gi1"
+              alt="An image about the Listen, read, discuss. The Graham Norton reading club. "
+            />
+          </picture>
         </div>
         <div>
-          <img
-            loading="lazy"
-            src="https://links.papareact.com/6ff"
-            alt="An image with an advertisement for Amazon prime"
-          />
+          <picture>
+            <img
+              loading="lazy"
+              src="https://links.papareact.com/6ff"
+              alt="An image with an advertisement for Amazon prime"
+            />
+          </picture>
         </div>
         <div>
-          <img
-            loading="lazy"
-            src="https://links.papareact.com/7ma"
-            alt="An image with the promotion for 3 months free with amazon music."
-          />
+          <picture>
+            <img
+              loading="lazy"
+              src="https://links.papareact.com/7ma"
+              alt="An image with the promotion for 3 months free with amazon music."
+            />
+          </picture>
         </div>
       </Carousel>
     </div>
