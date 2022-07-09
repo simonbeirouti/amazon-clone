@@ -53,7 +53,7 @@ export default function Header() {
         </p>
         <p className="link">Prime Video</p>
         <p className="link">Amazon Business</p>
-        <p className="link">Today's Deals</p>
+        <p className="link">Today&apos;s Deals</p>
         <p className="link hidden sm:inline-flex">Prime</p>
         <p className="link hidden sm:inline-flex">Electronics</p>
         <p className="link hidden md:inline-flex">Health &amp; Peronsal Care</p>
