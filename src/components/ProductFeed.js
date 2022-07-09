@@ -15,11 +15,13 @@ export default function ProductFeed({ products }) {
             image={image}
           />
         ))}
-      <img
-        className="md:col-span-full"
-        src="https://links.papareact.com/dyz"
-        alt="Image of products for easter"
-      />
+      <picture>
+        <img
+          className="md:col-span-full"
+          src="https://links.papareact.com/dyz"
+          alt="Image of products for easter"
+        />
+      </picture>
       <div className="md:col-span-2">
         {products
           .slice(4, 5)
