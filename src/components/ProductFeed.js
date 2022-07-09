@@ -15,9 +15,8 @@ export default function ProductFeed({ products }) {
             image={image}
           />
         ))}
-      <picture>
+      <picture className="md:col-span-full">
         <img
-          className="md:col-span-full"
           src="https://links.papareact.com/dyz"
           alt="Image of products for easter"
         />
