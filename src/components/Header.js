@@ -4,13 +4,22 @@ import {
   ShoppingCartIcon,
   SearchIcon,
 } from "@heroicons/react/outline";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { selectItems } from "../slices/basketSlice";
 
 export default function Header() {
+  const { data: session } = useSession();
+  const router = useRouter();
+  const items = useSelector(selectItems);
+
   return (
     <header>
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
           <Image
+            onClick={() => router.push("/")}
             src="https://links.papareact.com/f90"
             alt="Logo for Amazon"
             width={150}
@@ -26,18 +35,22 @@ export default function Header() {
           />
           <SearchIcon className="h-12 p-4" />
         </div>
+
         <div className="flex text-white items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-          <div className="link">
-            <p>Hello, Simon Beirouti</p>
+          <div onClick={!session ? signIn : signOut} className="link">
+            <p>{session ? `Hello, ${session.user.name}` : `Sign In`}</p>
             <p className="font-extrabold md:text-sm">Accounts &amp; Lists</p>
           </div>
           <div className="link">
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">&amp; Orders</p>
           </div>
-          <div className="flex items-center relative link">
+          <div
+            onClick={() => router.push("/checkout")}
+            className="flex items-center relative link"
+          >
             <span className="absolute top-0 right-0 md:right-11 bg-yellow-400 h-4 w-4 rounded-full text-center text-black font-bold">
-              2
+              {items.length}
             </span>
             <ShoppingCartIcon className="h-10" />
             <p className="hidden md:inline text-white font-extrabold md:text-sm mt-2">
