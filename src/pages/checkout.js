@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { selectItems, selectTotal } from "../slices/basketSlice";
 import Currency from "react-currency-formatter";
 import { useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 export default function Checkout() {
   const items = useSelector(selectItems);
@@ -50,15 +51,13 @@ export default function Checkout() {
                   <Currency quantity={total} currency="USD" />
                 </span>
               </h2>
-              <button
-                disabled={!session}
-                className={`button mt-2 ${
-                  !session &&
-                  "from-gray-300 to-gray-500 text-gray-300 cursor-not-allowed"
-                }`}
-              >
-                {!session ? "Sign in to checkout" : "Proceed to checkout."}
-              </button>
+              {!session ? (
+                <button onClick={signIn} className=" mt-2 button">
+                  Log in to checkout
+                </button>
+              ) : (
+                <button className="mt-2 button">Proceed to checkout</button>
+              )}
             </>
           )}
         </div>
