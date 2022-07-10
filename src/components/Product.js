@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Currency from "react-currency-formatter";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../slices/basketSlice";
 
 export default function Product({
   id,
@@ -9,6 +11,20 @@ export default function Product({
   category,
   image,
 }) {
+  const dispatch = useDispatch();
+
+  const addItemToBasket = () => {
+    const product = {
+      id,
+      title,
+      price,
+      description,
+      category,
+      image,
+    };
+    dispatch(addToBasket(product));
+  };
+
   return (
     <div key={id} className="relative flex flex-col m-5 bg-white z-30 p-10">
       <p className="absolute top-2 right-2 text-xs italic text-gray-400">
@@ -26,7 +42,9 @@ export default function Product({
       <div className="mb-5">
         <Currency quantity={price} currency="USD" />
       </div>
-      <button className="mt-auto button">Add to cart</button>
+      <button onClick={addItemToBasket} className="mt-auto button">
+        Add to cart
+      </button>
     </div>
   );
 }
